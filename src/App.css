@@ -1,26 +1,29 @@
 body{
-  background-color: #323234;
+  background-color: #f8f5f4;
   color: rgb(253, 250, 250);
   overflow: hidden;
+  background-image: url('https://i.imgur.com/tTcG2YR.png');
+  background-size: cover;
 }
 
 h1{
+  margin-top: 13%;
   text-align: center;
+  font-size: 40px;
 }
-
 
 .todo-wrapper{
   background-color: #130b44;
-  padding: 2%;
+  padding: 3%;
   width: fit-content;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3%;
+  margin-top: auto;
+  margin-bottom: auto;
   max-height: 80vh;
   overflow-y: auto;
   box-shadow: 0px 5px 7px rgb(26, 25, 25);
  
-  
 }
 
 .todo-input{
@@ -30,7 +33,6 @@ h1{
   border-bottom: 3px solid rgb(26, 173, 189);
   padding-bottom: 25px;
   margin-bottom: 25px;
-  
 }
 
 .todo-input-item{
@@ -38,7 +40,6 @@ h1{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  
 }
 
 .todo-input-item label{
@@ -55,9 +56,6 @@ h1{
 .todo-input-item input:focus{
   outline: 2px solid rgb(14, 177, 218);
 }
-
-
-
 
 .primary-btn{
   background-color: rgb(21, 209, 159);
@@ -78,9 +76,8 @@ h1{
   margin-bottom: 10px;
 }
 
-
 .secondaryBtn{
-  background-color: rgb(92, 92, 92);
+  background-color: rgb(92, 81, 81);
   color: white;
   border-radius: 0px;
   border: none;
@@ -92,8 +89,6 @@ h1{
 .btn-area .active{
   background-color: rgb(21, 209, 159);
 }
-
-
 
 .todo-list{
   display: flex;
@@ -109,7 +104,7 @@ h1{
   padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 10px;
-  box-shadow: 0px 2px 4px rgb(188, 48, 48);
+  box-shadow: 0px 2px 4px rgb(37, 28, 28);
 }
 
 .todo-list-item h3{
@@ -123,7 +118,6 @@ h1{
   margin-top: 8px;
   font-size: 14px;
   color: rgb(162, 211, 230);
-
 }
 
 .icon{
@@ -133,7 +127,6 @@ h1{
 
 .icon:hover{
   color: rgb(179, 44, 44);
-
 }
 
 .check-icon{
@@ -146,4 +139,38 @@ h1{
 
 .check-icon:hover{
   color: rgb(5, 137, 75);
+}
+
+/* Light Theme */
+.theme-light {
+  background-color: #f4f4f4;
+  color: #05baf1; /* Set text color for light theme */
+}
+
+/* Dark Theme */
+.theme-dark {
+  background-color: #111111;
+  color: #e0e0e0; /* Set text color for dark theme */
+}
+
+.theme-dark .secondaryBtn.active {
+  background-color: #2c2c32;
+}
+
+.toggle-theme-btn {
+  background-color: rgb(32, 31, 31);
+  color: white;
+  border-radius: 0px;
+  border: none;
+  padding: 10px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.toggle-theme-btn:hover {
+  background-color: rgb(22, 136, 126); 
+}
+
+.theme-text {
+  color: inherit; /* Inherit the color from the parent element (theme-specific color) */
 }
