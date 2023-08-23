@@ -2,12 +2,14 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import {AiOutlineDelete} from 'react-icons/ai';
 import {BsCheckLg} from 'react-icons/bs';
+
 function App () {
   const [allTodos, setAllTodos] = useState ([]);
   const [newTodoTitle, setNewTodoTitle] = useState ('');
   const [newDescription, setNewDescription] = useState ('');
   const [completedTodos, setCompletedTodos] = useState ([]);
   const [isCompletedScreen, setIsCompletedScreen] = useState (false);
+  const [theme, setTheme] = useState('theme-light'); // Default theme
 
   const handleAddNewToDo = () => {
     let newToDoObj = {
@@ -85,13 +87,17 @@ function App () {
     handleToDoDelete (index);
   };
 
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'theme-light' ? 'theme-dark' : 'theme-light'));
+  };
+
   return (
-    <div className="App">
-      <h1>TO DO LIST</h1>
+    <div className={`App ${theme}`}>
+      <h1>LIST</h1>
       <div className="todo-wrapper">
         <div className="todo-input">
           <div className="todo-input-item">
-            <label>Add Title:</label>
+            <label className="theme-text">Add Title:</label>
             <input
               type="text"
               value={newTodoTitle}
@@ -100,7 +106,7 @@ function App () {
             />
           </div>
           <div className="todo-input-item">
-            <label>Add Description:</label>
+            <label className="theme-text">Add Description:</label>
             <input
               type="text"
               value={newDescription}
@@ -120,17 +126,20 @@ function App () {
         </div>
         <div className="btn-area">
           <button
-            className={`secondaryBtn ${isCompletedScreen === false && 'active'}`}
+            className={`secondaryBtn ${!isCompletedScreen && 'active'}`}
             onClick={() => setIsCompletedScreen (false)}
           >
             To Do
           </button>
           <button
-            className={`secondaryBtn ${isCompletedScreen === true && 'active'}`}
-            onClick={() => setIsCompletedScreen (true)}
+            className={`secondaryBtn ${isCompletedScreen ? 'active' : ''}`}
+            onClick={() => setIsCompletedScreen(true)}
           >
             Completed!
           </button>
+          <button className={`secondaryBtn toggle-theme-btn`} onClick={toggleTheme}>
+          Change Theme
+        </button>
         </div>
         <div className="todo-list">
 
